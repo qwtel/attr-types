@@ -5,3 +5,5 @@ export const array = attr =>
     .map(x => x.trim());
 
 array.stringify = a => (a.length ? a.join(',') : null);
+
+export default array;

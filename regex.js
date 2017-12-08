@@ -4,3 +4,5 @@ export const regex = (attr) => {
 };
 
 regex.stringify = r => r.toString();
+
+export default regex;

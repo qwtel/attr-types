@@ -5,3 +5,5 @@ export const bool = (attr) => {
 };
 
 bool.stringify = b => `${!!b}`;
+
+export default bool;

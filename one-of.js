@@ -9,3 +9,5 @@ export const oneOf = (alts) => {
   f.stringify = o => (alts.indexOf(o) ? o : null);
   return f;
 };
+
+export default oneOf;

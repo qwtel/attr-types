@@ -5,3 +5,5 @@ export const arrayOf = (type) => {
   f.stringify = a => array.stringify(a.map(type.stringify));
   return f;
 };
+
+export default arrayOf;

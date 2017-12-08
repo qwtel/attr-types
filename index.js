@@ -7,3 +7,7 @@ import { regex } from './regex';
 import { string } from './string';
 
 export { array, arrayOf, bool, number, oneOf, regex, string };
+
+export default {
+  array, arrayOf, bool, number, oneOf, regex, string,
+};
