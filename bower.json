@@ -1,0 +1,17 @@
+{
+  "name": "attr-types",
+  "description": "",
+  "main": "dist/index.js",
+  "authors": [
+    "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/qwtel/attr-types",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
