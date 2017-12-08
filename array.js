@@ -1,6 +1,6 @@
 export const array = attr =>
   attr.trim()
-    // .replace(/^\[?(.*?)\]?$/, '$1')
+    .replace(/^\[?(.*?)\]?$/, '$1')
     .split(',')
     .map(x => x.trim());
 
