@@ -1,0 +1,11 @@
+{
+  "extends": "eslint-config-airbnb",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "no-console": "off",
+    "import/prefer-default-export": "off",
+  }
+}
