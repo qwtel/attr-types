@@ -84,9 +84,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var array = exports.array = function array(attr) {
-  return attr.trim()
-  // .replace(/^\[?(.*?)\]?$/, '$1')
-  .split(',').map(function (x) {
+  return attr.trim().replace(/^\[?(.*?)\]?$/, '$1').split(',').map(function (x) {
     return x.trim();
   });
 };
