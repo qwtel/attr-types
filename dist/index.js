@@ -95,6 +95,8 @@ array.stringify = function (a) {
   return a.length ? a.join(',') : null;
 };
 
+exports.default = array;
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -128,6 +130,9 @@ exports.number = _number.number;
 exports.oneOf = _oneOf.oneOf;
 exports.regex = _regex.regex;
 exports.string = _string.string;
+exports.default = {
+  array: _array.array, arrayOf: _arrayOf.arrayOf, bool: _bool.bool, number: _number.number, oneOf: _oneOf.oneOf, regex: _regex.regex, string: _string.string
+};
 
 /***/ }),
 /* 2 */
@@ -153,6 +158,8 @@ var arrayOf = exports.arrayOf = function arrayOf(type) {
   return f;
 };
 
+exports.default = arrayOf;
+
 /***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -172,6 +179,8 @@ bool.stringify = function (b) {
   return '' + !!b;
 };
 
+exports.default = bool;
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -189,6 +198,8 @@ var number = exports.number = function number(attr) {
 number.stringify = function (n) {
   return "" + n;
 };
+
+exports.default = number;
 
 /***/ }),
 /* 5 */
@@ -214,6 +225,8 @@ var oneOf = exports.oneOf = function oneOf(alts) {
   return f;
 };
 
+exports.default = oneOf;
+
 /***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -233,6 +246,8 @@ regex.stringify = function (r) {
   return r.toString();
 };
 
+exports.default = regex;
+
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -250,6 +265,8 @@ var string = exports.string = function string(attr) {
 string.stringify = function (s) {
   return s;
 };
+
+exports.default = string;
 
 /***/ })
 /******/ ]);
