@@ -75,7 +75,7 @@ const baseConfig = merge({
 
 const config = [
   merge(baseConfig, {
-    entry: resolve('./attr-types.js'),
+    entry: resolve('./index.js'),
     output: {
       filename: `index${min}.js`,
     },

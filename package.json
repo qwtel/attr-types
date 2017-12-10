@@ -2,9 +2,9 @@
   "name": "attr-types",
   "version": "1.0.0-pre.4",
   "description": "",
-  "main": "attr-types.js",
+  "main": "index.js",
   "files": [
-    "attr-types.js",
+    "index.js",
     "array-of.js",
     "array.js",
     "bool.js",
