@@ -84,13 +84,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var array = exports.array = function array(attr) {
+  if (attr == null) return null;
+
   return attr.trim().replace(/^\[?(.*?)\]?$/, '$1').split(',').map(function (x) {
     return x.trim();
   });
 };
 
 array.stringify = function (a) {
-  return a.length ? a.join(',') : null;
+  return a && a.join ? a.join(',') : null;
 };
 
 exports.default = array;
@@ -169,8 +171,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var bool = exports.bool = function bool(attr) {
-  if (attr === true || attr === 'true') return true;else if (attr === false || attr === 'false') return false;
-  return attr != null;
+  if (attr == null) return null;
+
+  var attr2 = attr.trim();
+  if (attr2 === 'false' || attr2 === 'null' || attr2 === 'undefined' || attr2 === '0') {
+    return false;
+  }
+
+  return true;
 };
 
 bool.stringify = function (b) {
@@ -190,6 +198,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var number = exports.number = function number(attr) {
+  if (attr == null) return null;
   return Number(attr);
 };
 
@@ -236,12 +245,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var regex = exports.regex = function regex(attr) {
+  if (attr == null) return null;
   var match = attr.match(/^\/?(.*?)(\/([gimy]*))?$/);
   return new RegExp(match[1], match[3]);
 };
 
 regex.stringify = function (r) {
-  return r.toString();
+  return r && r.toString() || null;
 };
 
 exports.default = regex;
@@ -269,4 +279,4 @@ exports.default = string;
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=attr-types.js.map

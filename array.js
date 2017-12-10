@@ -1,9 +1,14 @@
-export const array = attr =>
-  attr.trim()
+export const array = (attr) => {
+  if (attr == null) return null;
+
+  const str = attr.trim()
     .replace(/^\[?(.*?)\]?$/, '$1')
     .split(',')
     .map(x => x.trim());
 
-array.stringify = a => (a.length ? a.join(',') : null);
+  return str || null;
+};
+
+array.stringify = a => (a && a.length > 0 ? a.join(',') : null);
 
 export default array;

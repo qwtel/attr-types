@@ -3,9 +3,19 @@
   "version": "1.0.0-pre.2",
   "description": "",
   "main": "index.js",
-  "browser": "dist/index.min.js",
+  "files": [
+    "index.js",
+    "array-of.js",
+    "array.js",
+    "bool.js",
+    "number.js",
+    "one-of.js",
+    "regex.js",
+    "string.js",
+    "umd/"
+  ],
   "scripts": {
-    "test": "echo \"Warning: no test specified\" && exit 0",
+    "test": "mocha --require babel-core/register",
     "lint": "eslint .",
     "build": "npm run build:prod & npm run build:dev & wait",
     "build:prod": "webpack --env prod",
@@ -25,8 +35,26 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
+    "mocha": "^4.0.1",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1",
     "yargs": "^10.0.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwtel/attr-types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qwtel/attr-types/issues"
+  },
+  "homepage": "https://github.com/qwtel/attr-types#readme",
+  "babel": {
+    "presets": [
+      "env"
+    ]
   }
 }

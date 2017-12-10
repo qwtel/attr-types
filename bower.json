@@ -1,7 +1,7 @@
 {
   "name": "attr-types",
   "description": "",
-  "main": "dist/index.js",
+  "main": "umd/attr-types.js",
   "authors": [
     "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)"
   ],
