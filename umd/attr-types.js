@@ -86,13 +86,15 @@ Object.defineProperty(exports, "__esModule", {
 var array = exports.array = function array(attr) {
   if (attr == null) return null;
 
-  return attr.trim().replace(/^\[?(.*?)\]?$/, '$1').split(',').map(function (x) {
+  var str = attr.trim().replace(/^\[?(.*?)\]?$/, '$1').split(',').map(function (x) {
     return x.trim();
   });
+
+  return str || null;
 };
 
 array.stringify = function (a) {
-  return a && a.join ? a.join(',') : null;
+  return a && a.length > 0 ? a.join(',') : null;
 };
 
 exports.default = array;
@@ -150,11 +152,26 @@ var _array = __webpack_require__(0);
 
 var arrayOf = exports.arrayOf = function arrayOf(type) {
   var f = function f(attr) {
-    return (0, _array.array)(attr).map(type);
+    if (attr == null) return null;
+    var a = (0, _array.array)(attr).map(type);
+    if (a.reduce(function (r, x) {
+      return r && x !== null;
+    }, true)) {
+      return a;
+    }
+    return null;
   };
+
   f.stringify = function (a) {
-    return _array.array.stringify(a.map(type.stringify));
+    var a2 = a && a.map && a.map(type.stringify);
+    if (a2 && a2.reduce(function (r, x) {
+      return r && x !== null;
+    }, true)) {
+      return _array.array.stringify(a2);
+    }
+    return null;
   };
+
   return f;
 };
 
@@ -172,13 +189,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 var bool = exports.bool = function bool(attr) {
   if (attr == null) return null;
-
-  var attr2 = attr.trim();
-  if (attr2 === 'false' || attr2 === 'null' || attr2 === 'undefined' || attr2 === '0') {
-    return false;
-  }
-
-  return true;
+  var attr2 = attr.trim && attr.trim() || attr;
+  return !(attr2 === 'false' || attr2 === 'null' || attr2 === 'undefined' || attr2 === '0' || attr2 === false);
 };
 
 bool.stringify = function (b) {
@@ -203,6 +215,7 @@ var number = exports.number = function number(attr) {
 };
 
 number.stringify = function (n) {
+  if (n == null) return null;
   return "" + n;
 };
 
@@ -220,15 +233,20 @@ Object.defineProperty(exports, "__esModule", {
 });
 var oneOf = exports.oneOf = function oneOf(alts) {
   var f = function f(attr) {
+    if (attr == null) return null;
+
     var i = alts.indexOf(attr);
     if (true && i === -1) {
       console.warn('\'' + attr + '\' is not \'oneOf\': ' + alts.join(', '));
     }
+
     return i > -1 ? alts[i] : null;
   };
+
   f.stringify = function (o) {
-    return alts.indexOf(o) ? o : null;
+    return alts.indexOf(o) !== -1 ? o : null;
   };
+
   return f;
 };
 
@@ -246,7 +264,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 var regex = exports.regex = function regex(attr) {
   if (attr == null) return null;
-  var match = attr.match(/^\/?(.*?)(\/([gimy]*))?$/);
+  var attr2 = attr.trim && attr.trim() || attr;
+  var match = attr2.match(/^\/?(.*?)(\/([gimy]*))?$/);
   return new RegExp(match[1], match[3]);
 };
 
