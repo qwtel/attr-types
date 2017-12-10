@@ -298,4 +298,4 @@ exports.default = string;
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=attr-types.js.map
+//# sourceMappingURL=index.js.map

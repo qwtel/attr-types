@@ -2,9 +2,9 @@
   "name": "attr-types",
   "version": "1.0.0-pre.3",
   "description": "",
-  "main": "index.js",
+  "main": "attr-types.js",
   "files": [
-    "index.js",
+    "attr-types.js",
     "array-of.js",
     "array.js",
     "bool.js",
@@ -12,15 +12,16 @@
     "one-of.js",
     "regex.js",
     "string.js",
-    "umd/"
+    "dist/"
   ],
   "scripts": {
+    "clean": "rm -rf dist",
     "test": "mocha --require babel-core/register",
     "lint": "eslint .",
     "build": "npm run build:prod & npm run build:dev & wait",
     "build:prod": "webpack --env prod",
     "build:dev": "webpack",
-    "prepare": "npm run lint && npm run test && npm run build",
+    "prepare": "npm run lint && npm run test && npm run clean && npm run build",
     "version": "npm run prepare && git add ."
   },
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
