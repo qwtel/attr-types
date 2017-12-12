@@ -1,6 +1,6 @@
 {
   "name": "attr-types",
-  "description": "",
+  "description": "Convert simple types to and from HTML node attributes",
   "main": "dist/index.js",
   "authors": [
     "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)"
