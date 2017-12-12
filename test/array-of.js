@@ -2,7 +2,6 @@ const { arrayOf } = require('../array-of');
 
 const { string } = require('../string');
 const { number } = require('../number');
-const { bool } = require('../bool');
 const { oneOf } = require('../one-of');
 
 const assert = require('assert');
@@ -37,24 +36,25 @@ describe('arrayOf', () => {
     });
   });
 
-  describe('arrayOf(bool)', () => {
-    const aOfB = arrayOf(bool);
-
-    it('should exist', () => {
-      assert(aOfB);
-      assert(aOfB.stringify);
-    });
-
-    it('should convert numbers', () => {
-      assert.deepEqual(aOfB('true,false'), [true, false]);
-    });
-
-    describe('stringify', () => {
-      it('should stringify', () => {
-        assert.equal(aOfB.stringify([false, true]), 'false,true');
-      });
-    });
-  });
+  // TODO: maybe support this in the future?
+  // describe('arrayOf(bool)', () => {
+  //   const aOfB = arrayOf(bool);
+  //
+  //   it('should exist', () => {
+  //     assert(aOfB);
+  //     assert(aOfB.stringify);
+  //   });
+  //
+  //   it('should convert numbers', () => {
+  //     assert.deepEqual(aOfB('true,false'), [true, false]);
+  //   });
+  //
+  //   describe('stringify', () => {
+  //     it('should stringify', () => {
+  //       assert.equal(aOfB.stringify([false, true]), 'false,true');
+  //     });
+  //   });
+  // });
 
   describe('arrayOf(oneOf(w,a,s,d))', () => {
     const arrayOfOneOfWASD = arrayOf(oneOf(['w', 'a', 's', 'd']));

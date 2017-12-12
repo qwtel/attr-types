@@ -1,5 +1,5 @@
 export const bool = (attr) => {
-  if (attr == null) return null;
+  if (attr == null) return false;
   const attr2 = (attr.trim && attr.trim()) || attr;
   return !(
     attr2 === 'false' ||
@@ -10,6 +10,6 @@ export const bool = (attr) => {
   );
 };
 
-bool.stringify = b => `${!!b}`;
+bool.stringify = b => (b ? '' : null);
 
 export default bool;

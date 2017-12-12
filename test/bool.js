@@ -8,18 +8,14 @@ describe('bool', () => {
     assert(bool.stringify);
   });
 
-  it('should return null on null', () => {
-    assert.equal(bool(null), null);
-    assert.equal(bool(undefined), null);
+  it('should parse', () => {
+    assert.equal(bool(''), true);
+    assert.equal(bool(null), false);
   });
 
-  it('should parse', () => {
+  it('should parse true and false (string)', () => {
     assert.equal(bool('true'), true);
     assert.equal(bool('false'), false);
-  });
-
-  it('should treat the empty string as true', () => {
-    assert.equal(bool(''), true);
   });
 
   it('should ignore whitespace', () => {
@@ -34,22 +30,22 @@ describe('bool', () => {
 
   describe('stringify', () => {
     it('should stringify', () => {
-      assert.equal(bool.stringify(false), 'false');
-      assert.equal(bool.stringify(true), 'true');
+      assert.equal(bool.stringify(true), '');
+      assert.equal(bool.stringify(false), null);
     });
 
     it('should turn truthy values into true', () => {
-      assert.equal(bool.stringify(1), 'true');
-      assert.equal(bool.stringify('somefin'), 'true');
-      assert.equal(bool.stringify({}), 'true');
-      assert.equal(bool.stringify([]), 'true');
+      assert.equal(bool.stringify(1), '');
+      assert.equal(bool.stringify('somefin'), '');
+      assert.equal(bool.stringify({}), '');
+      assert.equal(bool.stringify([]), '');
     });
 
     it('should turn falsy values into false', () => {
-      assert.equal(bool.stringify(0), 'false');
-      assert.equal(bool.stringify(undefined), 'false');
-      assert.equal(bool.stringify(null), 'false');
-      assert.equal(bool.stringify(''), 'false');
+      assert.equal(bool.stringify(0), null);
+      assert.equal(bool.stringify(undefined), null);
+      assert.equal(bool.stringify(null), null);
+      assert.equal(bool.stringify(''), null);
     });
   });
 });
