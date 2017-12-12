@@ -188,13 +188,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var bool = exports.bool = function bool(attr) {
-  if (attr == null) return null;
+  if (attr == null) return false;
   var attr2 = attr.trim && attr.trim() || attr;
   return !(attr2 === 'false' || attr2 === 'null' || attr2 === 'undefined' || attr2 === '0' || attr2 === false);
 };
 
 bool.stringify = function (b) {
-  return '' + !!b;
+  return b ? '' : null;
 };
 
 exports.default = bool;
