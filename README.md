@@ -5,7 +5,7 @@
 Convert simple types to and from HTML node attributes.
 This is useful when building WebComponents.
 
-Note that this only allows simple types (as opposed to complex types), which are typically found in HTML attributes.
+Note that this only allows simple types (as opposed to complex types), which are typically used in HTML attributes.
 See [this](https://qwtel.com/good-bad-and-ugly-webcomponents/) on how to pass complex data to WebComponents.
 
 ## Parsing
@@ -28,8 +28,6 @@ AttrTypes.lOrR('down') // => null
 ```
 
 ## Stringifying
-To stringify values each type has a `stringify` function:
-
 ```js
 import AttrTypes from 'attr-types';
 
@@ -48,23 +46,18 @@ lOrR.stringify('down') // => null
 
 ```
 
-
 ## DOM Interaction
 To get the value of an attribute (e.g. inside `attributeChangedCallback`):
 
 ```js
 // You need to remember the type
 const attrType = getTypeFor(attrName);
-
 const value = attrType(el.getAttribute(attrName));
-if (value != null) el[camelCase(attrName)] = value;
 ```
 
 To reflect a changed property in the node attributes, use:
 
 ```js
-const attrName = decamelize(key, '-');
-
 // You need to remember the type
 const attrType = getTypeFor(attrName);
 
