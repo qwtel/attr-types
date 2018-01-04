@@ -1,5 +1,7 @@
 # Attr Types
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/qwtel/attr-types.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/qwtel/attr-types.svg?branch=master)](https://travis-ci.org/qwtel/attr-types)
 
 Convert simple types to and from HTML node attributes.
