@@ -1,4 +1,12 @@
 language: node_js
 node_js:
-  - "node"
-  - "8"
+- node
+deploy:
+  provider: npm
+  email: mail@qwtel.com
+  api_key:
+    secure: LxHktHANhCTcgyEaFWS1yEPcH5BkcU2HZaAbaAk52mFa/j1G6P1eLNlu6wy2b/skXgD3Cslz6F2pxGR0C/jfNokSi/12SZUTDiPzGvIYsmZfJ+qmxw+2fFJthp3vgqhrFQKuR/GwI7IaIT0jW7D6+tgmln099alcGEa0uxSYELQuH5mbVG6YPEPWG/0XZbclXqYR4Y3rAVBIJ1Ta/IOqWxgxcSxkLdqklP+F5rZxKAJecl1cMbdkA/MqLW9U1v6dL1V6+PEGCKMK8nqRdeD0YB7QeSaul6mq+A8cdAHQ40Sv5MOGlPia2i2ZFRAdEN3nwCzkuZ2BaEar7ryDBTbJWJ5WyHUifBaF7rfmeuBoYM/pUlWzin+5zDnqPf9czAxd4L2ozKR+tSO4RgRLDApgX49cbX8EG51C9HeLUmLaHL2E5fu7tEUOlt8Hdj+urIf3qMFIBh+3f2+FX8G/6Yve8MmYE2gV+8nr1pIaH0TJXO4z0+NqwzB7Dl9x2vS+FuKQn7beT/r6ksKIpmteOPH4jAIW/cn9l3IUKjFYW1NMXq0UBLksPRmhKDCswbhfnuzPGP1hz9cweQu1DeUkHAkqvIRAWNM4F02IbbUjJrYfr1SaNYTeQvIQy9wBmiJkZC2aoIK/O3I57Q0QZVjHDJItVXLR4vIFMpFCdanNbyACEVM=
+  on:
+    tags: true
+    repo: qwtel/attr-types
+  skip_cleanup: true
