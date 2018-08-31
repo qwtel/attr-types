@@ -1,4 +1,4 @@
-export const regex = (attr) => {
+export const regex = attr => {
   if (attr == null) return null;
   const attr2 = (attr.trim && attr.trim()) || attr;
   const match = attr2.match(/^\/?(.*?)(\/([gimy]*))?$/);
