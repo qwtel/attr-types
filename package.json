@@ -1,6 +1,6 @@
 {
   "name": "attr-types",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert simple types to and from HTML node attributes",
   "main": "index.js",
   "files": [
